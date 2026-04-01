@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ergo Mempool Radar</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scan-ring" id="scanRing"></div>
+
+  <header class="topbar">
+    <div class="logo">
+      <span class="logo-icon">📡</span>
+      <span class="logo-text">Ergo Mempool Radar</span>
+    </div>
+    <div class="status-row">
+      <span class="badge" id="statusBadge">⏳ Connecting…</span>
+      <span class="stat-chip">ERG <strong id="ergPrice">—</strong></span>
+      <span class="stat-chip">Block <strong id="blockHeight">—</strong></span>
+      <span class="stat-chip">Pending <strong id="pendingCount">—</strong></span>
+    </div>
+  </header>
+
+  <main class="dashboard">
+
+    <!-- Whale alerts feed -->
+    <section class="panel" id="whalePanel">
+      <h2 class="panel-title">🐋 Whale Alerts</h2>
+      <ul class="alert-list" id="whaleList">
+        <li class="placeholder">Watching the chain…</li>
+      </ul>
+    </section>
+
+    <!-- Fee histogram -->
+    <section class="panel" id="feePanel">
+      <h2 class="panel-title">💸 Fee Distribution</h2>
+      <div class="histogram" id="histogram">
+        <div class="placeholder">Loading fee data…</div>
+      </div>
+      <div class="fee-legend">
+        <span>Low</span><span>High</span>
+      </div>
+    </section>
+
+    <!-- Recent tx feed -->
+    <section class="panel wide" id="txPanel">
+      <h2 class="panel-title">⚡ Pending Transactions <span class="refresh-hint" id="refreshHint"></span></h2>
+      <div class="tx-table-wrap">
+        <table class="tx-table">
+          <thead>
+            <tr>
+              <th>TX ID</th>
+              <th>Inputs</th>
+              <th>Outputs</th>
+              <th>Size (bytes)</th>
+              <th>Fee (nERG)</th>
+              <th>Tag</th>
+            </tr>
+          </thead>
+          <tbody id="txBody">
+            <tr><td colspan="6" class="placeholder">Fetching mempool…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Commentary ticker -->
+    <section class="ticker-wrap">
+      <div class="ticker" id="ticker">
+        <span class="ticker-item">The Oracle watches the mempool…</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Data: <a href="https://api.ergoplatform.com" target="_blank">Ergo Explorer API</a> &bull; Refreshes every 15s &bull; Not financial advice</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
